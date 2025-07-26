@@ -1,39 +1,61 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Seu código :root */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.characterLine {
+.rowCharacter {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 .characterContainer {
-  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  width: 100% auto;
   height: auto;
-  background-color: rgb(255, 255, 255);
+  background-color: transparent;
   border-radius: 20px;
+  max-width: fit-content;
+  padding: 10px;
+  margin-top: 50px;
 }
 
 .characterBoxContainer {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  align-items: center;
+  grid-template-columns: repeat(4, 1fr);
   justify-content: center;
-  padding: 10px;
-  gap: 7px;
+  align-items: center;
+  gap: 20px;
 }
 
 .characterBox {
@@ -41,15 +63,41 @@
   height: 100px;
   background-color: black;
   border-radius: 5px;
-  box-shadow: 0px 5px 5px rgb(84, 84, 84);
   transition: 0.3s all ease-in-out;
   cursor: pointer;
 }
 
-.characterBox:hover {
-  transform: scale(1.1);
+.characterBox img {
+  width: 100%;
 }
 
+.characterBox:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 10px rgb(255, 255, 255);
+}
+
+.containerImage {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.containerImage img {
+  width: 600px;
+}
+
+/* Informations Characters */
+
+.containerInformations {
+  width: 100px auto;
+  height: auto;
+  border: 3px solid black;
+  padding: 20px;
+  border-radius: 10px;
+}
 
 /* Cabecalho Imge */
 
@@ -57,8 +105,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 50px;
 }
 
 .cabecalhoImage img {
   width: 200px;
+}
+
+/* Informations */
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: -16px;
+  z-index: 0;
+  background-color: black;
+  position: relative;
+  z-index: 2;
 }

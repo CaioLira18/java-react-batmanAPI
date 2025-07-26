@@ -1,0 +1,50 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.characterLine {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.characterContainer {
+  width: 100vw;
+  height: 300px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+}
+
+.characterBoxContainer {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  gap: 7px;
+}
+
+.characterBox {
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  border-radius: 5px;
+  box-shadow: 0px 5px 5px rgb(84, 84, 84);
+  transition: 0.3s all ease-in-out;
+  cursor: pointer;
+}
+
+.characterBox:hover {
+  transform: scale(1.1);
+}

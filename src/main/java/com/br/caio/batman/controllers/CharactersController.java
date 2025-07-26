@@ -21,7 +21,6 @@ import com.br.caio.batman.service.CharactersService;
 @RestController
 @RequestMapping("/api/characters")
 public class CharactersController {
-
     private final CharactersService charactersService;
 
     @Autowired

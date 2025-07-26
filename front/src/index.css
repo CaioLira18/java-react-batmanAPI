@@ -17,11 +17,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 50px;
 }
 
 .characterContainer {
   width: 100vw;
-  height: 300px;
+  height: auto;
   background-color: rgb(255, 255, 255);
   border-radius: 20px;
 }
@@ -47,4 +48,17 @@
 
 .characterBox:hover {
   transform: scale(1.1);
+}
+
+
+/* Cabecalho Imge */
+
+.cabecalhoImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cabecalhoImage img {
+  width: 200px;
 }

@@ -22,7 +22,7 @@ const App = () => {
   }, []);
 
   const heroes = characters.filter(c => c.role === "HEROIS");
-  const villains = characters.filter(c => c.role === "VILÕES");
+  const villains = characters.filter(c => c.role === "VILOES");
 
   return (
     <div>
@@ -30,7 +30,7 @@ const App = () => {
         <div className="cabecalho">
           <div className="cabecalhoImage">
             <img
-              src="https://res.cloudinary.com/dthgw4q5d/image/upload/v1753553963/png-clipart-batman-logo-batman-arkham-city-batman-arkham-asylum-batman-arkham-knight-scarecrow-batman-logo-leaf-logo-Photoroom_hglxhz.png"
+              src="https://res.cloudinary.com/dthgw4q5d/image/upload/v1753580299/logo_r7v3pn.png"
               alt=""
             />
           </div>
@@ -41,7 +41,7 @@ const App = () => {
         <section className='charactersSection'>
           <div className="characters">
             <div className="characterContainer">
-              <h2>Heróis</h2>
+              <h2>Herois</h2>
               <div className="characterBoxContainer">
                 {heroes.map((character, i) => (
                   <div
@@ -56,7 +56,7 @@ const App = () => {
             </div>
 
             <div className="characterContainer">
-              <h2>Vilões</h2>
+              <h2>Viloes</h2>
               <div className="characterBoxContainer">
                 {villains.map((character, i) => (
                   <div
@@ -89,9 +89,9 @@ const App = () => {
                   <p><strong>Nome:</strong> {selectedCharacter.name}</p>
                   <p><strong>Nome Verdadeiro:</strong> {selectedCharacter.nomeVerdadeiro}</p>  
                   <p><strong>Altura:</strong> {selectedCharacter.altura}</p>  
-                  <p><strong>Ocupação:</strong> {selectedCharacter.role}</p>
-                  <p><strong>Descrição:</strong> {selectedCharacter.description}</p>
-                  <p><strong>Primeira Aparição:</strong> {selectedCharacter.firstAppearence}</p>
+                  <p><strong>Ocupacao:</strong> {selectedCharacter.role}</p>
+                  <p><strong>Descricao:</strong> {selectedCharacter.description}</p>
+                  <p><strong>Primeira Aparicao:</strong> {selectedCharacter.firstAppearence}</p>
                 </div>
               </div>
             </section>

@@ -19,6 +19,8 @@ public class Characters {
     private String id;
 
     private String name;
+    private String nomeVerdadeiro;
+    private String altura;
     private CharacterRole role;
     private String description;
     private String firstAppearence;

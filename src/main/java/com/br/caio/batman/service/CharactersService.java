@@ -36,6 +36,8 @@ public class CharactersService {
         if(existingCharacter.isPresent()){
             Characters characterToUpdate = existingCharacter.get();
             characterToUpdate.setName(character.getName());
+            characterToUpdate.setNomeVerdadeiro(character.getNomeVerdadeiro());
+            characterToUpdate.setAltura(character.getAltura());
             characterToUpdate.setRole(character.getRole());
             characterToUpdate.setDescription(character.getDescription());
             characterToUpdate.setFirstAppearence(character.getFirstAppearence());

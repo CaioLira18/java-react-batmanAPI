@@ -88,9 +88,13 @@ body {
 }
 
 .containerImage img {
+  transition: 0.3s all ease-in-out;
   width: 600px;
 }
 
+.containerImage img:hover {
+  transform: scale(1.1);
+}
 /* Informations Characters */
 
 .containerInformations {
@@ -138,6 +142,7 @@ body {
   align-items: center;
   justify-content: center;
   width: 100%;
+  height: 100vh;
   margin-top: -16px;
   z-index: 0;
   background-color: black;

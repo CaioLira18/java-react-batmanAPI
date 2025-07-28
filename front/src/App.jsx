@@ -69,6 +69,7 @@ const App = () => {
       <div className='rowCharacter'>
         <section className='charactersSection'>
           <div className="characters">
+            <div className="responseCharacters">
             <div className="characterContainer">
               <h2>Herois</h2>
               <div className="characterBoxContainer">
@@ -99,6 +100,7 @@ const App = () => {
               </div>
             </div>
           </div>
+        </div>
         </section>
 
         {selectedCharacter && (

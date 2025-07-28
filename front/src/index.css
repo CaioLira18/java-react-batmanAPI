@@ -129,6 +129,9 @@ body {
 
 /* INFORMAÇÕES */
 .containerInformations {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 300px; /* Corrigido */
   height: auto;
   border: 3px solid rgb(255, 255, 255);
@@ -196,7 +199,7 @@ body {
 }
 
 .locationInformations {
-  width: 100%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -294,4 +297,73 @@ body {
 
 .boxSecction {
   margin-top: 100px;
+}
+
+/* Responsividade */
+
+@media (max-width: 480px) {
+  .characters {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .rowCharacter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .containerImage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .containerInformations {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .responseCharacters {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .locationBoxImage {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .locationImage {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .locationImage img {
+    width: 100%;
+  }
+
+  .locationInformations {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .locationInformations h1 {
+    font-size: 30px;
+  }
+
+  .locationInformations p {
+    font-size: 20px;
+  }
 }

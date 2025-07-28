@@ -166,9 +166,9 @@ const App = () => {
       )}
 
       <section className='otherSecction'>
-          <div className='NextSecction'>
-            <div className="boxSecction">
-              <p>Proxima Sessão</p>
+          <div className='gamesContainer'>
+            <div className="gamesSecction">
+              <h1>JOGOS</h1>
             </div>
           </div>
       </section>

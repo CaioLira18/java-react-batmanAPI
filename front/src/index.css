@@ -216,6 +216,24 @@ body {
   justify-content: left;
 }
 
+.locationImage button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  background-color: transparent;
+  border: 1px solid white;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  transition: 0.3s all ease-in-out;
+}
+
+.locationImage button:hover {
+  background-color: aliceblue;
+  color: black;
+}
+
 .locationImage img {
   width: 70%;
   margin: 0 auto;

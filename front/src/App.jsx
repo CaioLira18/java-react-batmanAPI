@@ -8,6 +8,19 @@ const App = () => {
   const [selectedLocation, setSelectedLocation] = useState(null);
 
   const API_URL = "http://localhost:8080/api"
+  
+  const [imageIndex, setImageIndex] = useState(0);
+
+  function handleIndex() {
+  if (selectedLocation) {
+    const totalImages = Object.keys(selectedLocation)
+      .filter(key => key.startsWith("image"))
+      .length;
+
+    setImageIndex((prevIndex) => (prevIndex + 1) % totalImages);
+  }
+}
+
 
   useEffect(() => {
     fetch(`${API_URL}/characters`)
@@ -135,7 +148,10 @@ const App = () => {
           </div>
           <div className='locationBoxImage'>
             <div className="locationImage">
-              <img src={selectedLocation.image1} alt="" />
+              <img src={selectedLocation[`image${imageIndex + 1}`]} alt={selectedLocation.name} />
+              <button onClick={handleIndex}>
+                <i className="fa-solid fa-arrow-right"></i>
+              </button>
             </div>
             <div className="locationInformations">
                 <h1>{selectedLocation.name}</h1>

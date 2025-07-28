@@ -128,18 +128,18 @@ const App = () => {
                     className='locationBox'
                     onClick={() => setSelectedLocation(locations)}
                   >
-                    <img src={locations.image} alt={locations.name} />
+                    <img src={locations.image1} alt={locations.name} />
                   </div>
                 ))}
               </div>
           </div>
           <div className='locationBoxImage'>
             <div className="locationImage">
-              <img src={selectedLocation.image} alt="" />
+              <img src={selectedLocation.image1} alt="" />
             </div>
             <div className="locationInformations">
                 <h1>{selectedLocation.name}</h1>
-                <p>Descicao Local</p>
+                <p>{selectedLocation.description}</p>
             </div>
           </div>
         </div>

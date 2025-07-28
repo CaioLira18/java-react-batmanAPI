@@ -35,7 +35,10 @@ public class LocationService {
             Locations locationToUpdate = existingLocation.get();
             locationToUpdate.setName(character.getName());
             locationToUpdate.setDescription(character.getDescription());
-            locationToUpdate.setImage(character.getImage());
+            locationToUpdate.setImage1(character.getImage1());
+            locationToUpdate.setImage2(character.getImage2());
+            locationToUpdate.setImage3(character.getImage3());
+            locationToUpdate.setImage4(character.getImage4());
             return locationRepository.save(locationToUpdate);
         }
         return null;

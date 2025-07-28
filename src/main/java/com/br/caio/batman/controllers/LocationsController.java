@@ -15,24 +15,35 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.br.caio.batman.entities.Locations;
+import com.br.caio.batman.repository.LocationRepository;
 import com.br.caio.batman.service.LocationService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:5173") // Your Vite dev server
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("/api/locations")
 public class LocationsController {
+
     private final LocationService locationService;
+    private final LocationRepository locationRepository;
 
     @Autowired
-    public LocationsController(LocationService locationService) {
+    public LocationsController(LocationService locationService, LocationRepository locationRepository) {
         this.locationService = locationService;
+        this.locationRepository = locationRepository;
     }
 
     @PostMapping
     public ResponseEntity<Locations> createLocations(@RequestBody Locations location) {
         Locations createdLocations = locationService.insert(location);
         return new ResponseEntity<>(createdLocations, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/batch")
+    public ResponseEntity<Void> saveAll(@RequestBody List<Locations> locations) {
+        locationRepository.saveAll(locations);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @GetMapping
@@ -44,10 +55,9 @@ public class LocationsController {
     @GetMapping("/{id}")
     public ResponseEntity<Locations> getLocationsById(@PathVariable String id) {
         Optional<Locations> locations = locationService.findById(id);
-        if (locations.isPresent()) {
-            return new ResponseEntity<>(locations.get(), HttpStatus.OK);
-        }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return locations
+            .map(loc -> new ResponseEntity<>(loc, HttpStatus.OK))
+            .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @PutMapping("/{id}")
@@ -62,9 +72,8 @@ public class LocationsController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteLocation(@PathVariable String id) {
         boolean deleted = locationService.deleteById(id);
-        if (deleted) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return deleted
+            ? new ResponseEntity<>(HttpStatus.NO_CONTENT)
+            : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }

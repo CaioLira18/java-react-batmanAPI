@@ -3,7 +3,9 @@ import './index.css'
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
+  const [locations, setLocations] = useState([]);
   const [selectedCharacter, setSelectedCharacter] = useState(null);
+  const [selectedLocation, setSelectedLocation] = useState(null);
 
   const API_URL = "http://localhost:8080/api"
 
@@ -13,12 +15,26 @@ const App = () => {
       .then(data => {
         if (Array.isArray(data)) {
           setCharacters(data);
-          setSelectedCharacter(data[0]); // define o primeiro como padrão
+          setSelectedCharacter(data[0]); 
         } else {
           console.error('Formato inesperado para Characters:', data);
         }
       })
       .catch(error => console.error('Erro ao buscar Characters:', error));
+  }, []);
+
+  useEffect(() => {
+    fetch(`${API_URL}/locations`)
+      .then(response => response.json())
+      .then(data => {
+        if (Array.isArray(data)) {
+          setLocations(data);
+          setSelectedLocation(data[0]); 
+        } else {
+          console.error('Formato inesperado para Locations:', data);
+        }
+      })
+      .catch(error => console.error('Erro ao buscar Locations:', error));
   }, []);
 
   const heroes = characters.filter(c => c.role === "HEROIS");
@@ -99,12 +115,44 @@ const App = () => {
         )}
       </div>
 
-      <section className='otherSecction'>
-        <div className='container'>
-          <div className='box'>
-            <p>Ola</p>
+      {selectedLocation && (
+      <>
+      <section className='locationSecction'>
+        <div className='locationContainer'>
+          <div className="locationCabecalho">
+            <h1>Localizacoes</h1>
+            <div className="locationsBoxContainer">
+                {locations.map((locations, i) => (
+                  <div
+                    key={i}
+                    className='locationBox'
+                    onClick={() => setSelectedLocation(locations)}
+                  >
+                    <img src={locations.image} alt={locations.name} />
+                  </div>
+                ))}
+              </div>
+          </div>
+          <div className='locationBoxImage'>
+            <div className="locationImage">
+              <img src={selectedLocation.image} alt="" />
+            </div>
+            <div className="locationInformations">
+                <h1>{selectedLocation.name}</h1>
+                <p>Descicao Local</p>
+            </div>
           </div>
         </div>
+      </section>  
+      </>        
+      )}
+
+      <section className='otherSecction'>
+          <div className='NextSecction'>
+            <div className="boxSecction">
+              <p>Proxima Sessão</p>
+            </div>
+          </div>
       </section>
     </div>
   )
